@@ -1,0 +1,26 @@
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Calendar",
+        "version": "v3",
+        "serviceId": "calendar"
+      },
+      {
+        "userSymbol": "Docs",
+        "version": "v1",
+        "serviceId": "docs"
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/calendar.readonly",
+    "https://www.googleapis.com/auth/documents.readonly",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/script.scriptapp"
+  ]
+}

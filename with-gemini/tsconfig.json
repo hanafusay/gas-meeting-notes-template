@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "target": "esnext",
+    "module": "none",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"]
+}
