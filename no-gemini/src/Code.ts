@@ -452,7 +452,14 @@ const extractTextFromDocContent_ = (content: any[]): string => {
       // biome-ignore lint/suspicious/noExplicitAny: see file-level pragma
       const paragraphText = (element.paragraph.elements || [])
         .map((el: any) => {
-          if (el.textRun) return el.textRun.content;
+          if (el.textRun) {
+            // Docs API は段落内の Shift+Enter 由来の soft line break を
+            // U+000B (VT) で、ページ/カラム区切りを U+000C (FF) で返す。
+            // そのまま Markdown に書くと GitHub レンダラーが制御文字を
+            // 表示できず `��` 化する（U+FFFD 置換文字として描画される）ため、
+            // 段落区切りに正規化する。
+            return (el.textRun.content || '').replace(/[\v\f]/g, '\n\n');
+          }
           if (el.inlineObjectElement) return '[画像]';
           return '';
         })
